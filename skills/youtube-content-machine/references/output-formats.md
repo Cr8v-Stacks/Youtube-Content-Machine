@@ -144,27 +144,33 @@ Every image prompt must answer:
 
 Prompts must be descriptive enough for image generation. Include visual system, composition, subject, action, framing, background, style, emotional tone, important labels/text, and negative constraints where needed.
 
-The AI image generator does not know the script. Each image prompt must stand alone. Do not assume the generator knows the topic, timeline, place, currency, era, character, emotional context, or visual system from surrounding narration.
+The AI image generator does not know the script. Each image prompt must stand alone. Do not assume the generator knows the topic, timeline, place, product, object, character, emotional context, visual system, or surrounding narration.
 
-For historical scripts, every prompt that shows the past must state the period or historical setting clearly. If the narration is about ancient Mesopotamia, Lydia, early agriculture, cowrie money, Victorian industry, 1970s energy policy, or any other specific setting, name that setting in the prompt.
+Every prompt must use domain-specific specificity. Do not use a broad category word when the scene needs a precise object, environment, interface, machine, material, person type, document, currency, tool, product, or visual state.
 
-For money, finance, trade, and economic history visuals, specify the exact value object when relevant. Do not write "money" if the shot needs pounds, dollars, cowrie shells, grain rations, clay accounting tablets, livestock, silver, gold, electrum coins, banknotes, or digital balances.
+For example:
 
-For prompts involving currencies, objects, machines, clothing, architecture, maps, documents, or tools, define whether they are ancient, medieval, early modern, industrial-era, modern, or futuristic. The prompt should prevent accidental modern objects from appearing in ancient scenes and prevent vague "AI history" visuals.
+- Do not write "money" when the scene needs a specific currency, value object, ledger, banknote, coin, shell, grain store, card payment, or digital balance.
+- Do not write "technology" when the scene needs a battery cell, wind turbine nacelle, transformer, GPU rack, satellite, robotic arm, or lab prototype.
+- Do not write "company" when the scene needs a boardroom, factory floor, warehouse, retail shelf, investor deck, earnings chart, or product launch stage.
+- Do not write "people" when the scene needs a tired founder, skeptical engineer, anxious customer, village elder, factory worker, student, doctor, trader, or executive.
+- Do not write "place" when the scene needs a desert solar farm, cramped apartment, ancient village, modern server room, city street, courtroom, classroom, clinic, or port.
+
+For any prompt involving period, location, technology level, culture, industry, interface, clothing, architecture, tools, documents, data, or physical objects, define the exact context needed for the shot. The prompt should prevent the generator from filling gaps with generic stock imagery, wrong-era details, vague AI-history visuals, random futuristic objects, or incorrect modern elements.
 
 Every generated prompt should include:
 
 1. Visual system or style layer.
 2. Exact subject and action.
-3. Historical period, location, or domain context when relevant.
+3. Time period, location, industry, social setting, or domain context when relevant.
 4. Composition and camera/framing.
-5. Props, clothing, setting, labels, maps, or physical details.
+5. Props, clothing, interface details, tools, setting, labels, maps, materials, or physical details.
 6. Emotional tension or narrative meaning.
 7. Negative constraints for mistakes to avoid.
 
-Bad prompt: "Ancient people trading before money."
+Bad prompt: "People using technology."
 
-Better prompt: "Hybrid Sketch System Map, early agricultural village around 10,000 BCE, two families near mud-brick storage pits and woven grain baskets, one person sharing harvested grain while others watch and remember the favor, medium-wide documentary composition with faint hand-drawn memory lines connecting villagers, warm earth tones, no coins, no paper money, no modern clothing, no modern buildings."
+Better prompt: "Cinematic Documentary System, modern battery research lab, close-up of a gloved engineer placing a rectangular solid-state battery cell prototype into a testing rig, transparent safety shield in foreground, voltage monitor and thermal camera screen visible in background, cool white lab lighting, tense experimental mood, shallow depth of field, no generic robots, no sci-fi holograms, no unrelated circuit-board background."
 
 Use judgment on complexity. Some shots should be literal and simple when the narration itself is the visual idea:
 

@@ -259,23 +259,18 @@ Every 30-60 seconds introduce something new:
 
 Do not spend multiple minutes circling the same point.
 
-For factual, historical, economic, science, technology, and energy scripts, do not let the narration become pure explanation for too long. Every 15-30 seconds should ideally give the viewer a concrete reward:
+For any script type, do not let the narration become pure explanation for too long. Every 15-30 seconds should ideally give the viewer a concrete reward. The reward depends on the content type:
 
-- A number.
-- A date.
-- A named person.
-- A place.
-- A company.
-- A discovered object.
-- A measurement.
-- A surprising comparison.
-- A contradiction.
-- A mini mystery.
-- A consequence.
+- Factual/history/science: number, date, name, place, object, experiment, discovery, measurement, source detail, or contradiction.
+- Business/technology/energy: company, cost, capacity, timeline, competitor, bottleneck, market signal, failure point, or adoption obstacle.
+- Human behavior/psychology: familiar scenario, social consequence, internal contradiction, relatable example, decision pressure, or "I have done this" moment.
+- Systems/explainers: visible outcome, hidden rule, incentive loop, constraint, exception, tradeoff, or real-world consequence.
+- Story/documentary: character decision, emotional turn, reveal, reversal, mystery clue, location change, or new stake.
+- Visual/tutorial/process content: step result, before-and-after, mistake, tool choice, constraint, comparison, or practical payoff.
 
-Explanation is allowed, but it must be interrupted by evidence drops. A good script should feel like question, answer, new question, answer, new question, not question followed by a long lecture.
+Explanation is allowed, but it must be interrupted by viewer rewards. A good script should feel like question, answer, new question, answer, new question, not question followed by a long lecture.
 
-When a section makes an abstract claim, immediately ground it in a tangible example. For example, "memory was the first economic technology" should become a visible situation: a group of 40 people remembering who shared food, who helped build shelter, and who keeps taking without giving back.
+When a section makes an abstract claim, immediately ground it in a tangible example from the topic's own world. If the script is about behavior, show a person making the mistake. If it is about a company, show the decision or market pressure. If it is about a technology, show the constraint or test. If it is about history, show the object, place, date, or social situation.
 
 If a viewer could say "okay, I get it" before the section ends, add a new fact, example, complication, or question.
 

@@ -1,0 +1,4 @@
+interface:
+  display_name: "YouTube Content Machine"
+  short_description: "Build repeatable YouTube content systems"
+  default_prompt: "Use $youtube-content-machine to plan a faceless YouTube channel and generate scripts, metadata, and image prompts."

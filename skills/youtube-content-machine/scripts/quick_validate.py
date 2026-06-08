@@ -41,6 +41,8 @@ SKILL_REQUIRED_PHRASES = [
     "production-pack file first",
     "Technical file-writing rule",
     "Loop-generated prompt packs",
+    "prompt-depth validator fails",
+    "File-backed assemblers are allowed",
 ]
 
 OUTPUT_REQUIRED_PHRASES = [
@@ -55,6 +57,12 @@ OUTPUT_REQUIRED_PHRASES = [
     "A short chat response",
     "Shot narration coverage",
     "code loops over arrays",
+    "generic depth suffix",
+    "Passing the word-count gate",
+    "real estimated runtime",
+    "bypass prompt-depth checks",
+    "# Script` section must begin with the first spoken narration line",
+    "one reusable template function",
 ]
 
 VISUAL_REQUIRED_PHRASES = [
@@ -66,6 +74,8 @@ VISUAL_REQUIRED_PHRASES = [
     "validator-complete prompts",
     "semantically aligned",
     "Loop-generated prompts",
+    "inflate weak prompts",
+    "nearly every prompt as a \"diagram hold\"",
 ]
 
 MATRIX_REQUIRED_PHRASES = [
@@ -144,7 +154,7 @@ def make_fixture() -> str:
         depth_suffix = (
             "off-white notebook paper texture, black ink linework, muted earth tones, "
             "simple role-based human figures, clear foreground and background separation, "
-            "short readable labels tied to the narration beat"
+            "short readable labels"
         )
         prompts.append(
             f"""{index + 1}. {start_time}-{end_time}

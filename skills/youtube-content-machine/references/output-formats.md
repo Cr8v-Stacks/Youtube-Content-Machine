@@ -36,6 +36,7 @@ Pre-delivery completeness check:
 - Runtime target, word budget, actual or estimated word count, and estimated runtime agree with each other.
 - Script Control Brief, Opening Attack Ladder, Retention Beat Map, and Narrative Texture Rules appear before the script.
 - Retention Beat Map reaches the stated runtime and includes first-minute pressure, first-3-minute escalation, middle re-hooks, and ending payoff.
+- If the script estimate or shot timeline runs longer than the nominal target, extend the Retention Beat Map to the real estimated runtime instead of stopping at 8:00 by habit.
 - Channel Visual Identity Lock includes default visual system, identity preset, approved inserts, style DNA, thumbnail DNA, and forbidden drift.
 - Selected Visual System includes a canon system plus identity preset, not only a broad system name.
 - Recurring character set or primary character prompt is included when repeated people or roles appear.
@@ -197,7 +198,9 @@ Do not invent a new episode-level visual system unless the topic truly cannot fi
 
 Write the script cleanly without image prompts. If timestamps are useful, include them. If the user asked for a Short, write tightly for the requested length.
 
-Before the script, state:
+State runtime data in the Runtime section or immediately before the Script heading, not inside the `# Script` section. The `# Script` section must begin with the first spoken narration line.
+
+Runtime data to state before the script section:
 
 - Target runtime.
 - Target word count range.
@@ -274,6 +277,9 @@ Premium variation rule:
 - If the same opening phrase appears across many prompts, rewrite the set with more varied shot types before delivery.
 - Do not generate prompts by cycling a small grammar such as "literal scene," "object-led insert," and "system-map diagram" across every shot. That creates validator-complete but editor-weak prompts.
 - Do not use code loops over arrays of narration phrases, nouns, actions, frames, labels, or emotions to create the final shot list. That produces surface variety while keeping the same prompt skeleton. Use scripts only for counting, validation, or cleanup after the shot prompts are genuinely written.
+- A file-backed assembler may stitch or count already-written prompt material, but it must not create A/B/C prompts from one reusable template function over a beat array. Delete temporary assembler/generator helpers before final delivery unless the user explicitly asked to keep them.
+- Do not repair thin prompts by appending the same generic depth suffix to every line. Phrases like "visible social pressure," "object-specific historical details," and "foreground-background clarity" are not substitutes for naming the actual object, action, framing, evidence clue, setting, and tension of that shot.
+- Do not label most prompts as "diagram hold," "map hold," "text card," or "title card" to bypass prompt-depth checks. Hold/card labels are for deliberate pacing beats, not the default state of a full shot list.
 
 Long-form script-to-image ratio:
 
@@ -328,6 +334,7 @@ Prompt depth gate:
 - Each prompt should include framing or composition language, visible action, exact subject, domain or period context when relevant, props/details, emotional or narrative tension, and mistake-prevention constraints.
 - A prompt that only names a scene, setting, or category is a failure even if it uses the selected visual style.
 - If the selected system is sketch, diagram, comic, stick drawing, cinematic documentary, or evidence-board style, every character prompt and shot prompt must stay in that same visual world.
+- Passing the word-count gate by adding repeated meta-instructions is still a failure. The prompt must become more specific, not merely longer.
 
 Bad prompt: "People using technology."
 

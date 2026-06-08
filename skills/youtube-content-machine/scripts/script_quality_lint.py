@@ -148,6 +148,15 @@ VISIBLE_ACTION_WORDS = [
     "stands",
 ]
 
+SCRIPT_METADATA_START_PATTERNS = (
+    "target runtime",
+    "target word",
+    "estimated word",
+    "actual word",
+    "estimated runtime",
+    "word count",
+)
+
 
 def words(text: str) -> list[str]:
     return re.findall(r"\b[\w'-]+\b", text.replace(chr(8217), "'"))
@@ -189,24 +198,24 @@ def find_section(text: str, names: list[str]) -> str | None:
 def strip_script_metadata(script: str) -> str:
     lines = script.splitlines()
     first_body_index = 0
-    metadata_patterns = (
-        "target runtime",
-        "target word",
-        "estimated word",
-        "actual word",
-        "estimated runtime",
-        "word count",
-    )
     for index, line in enumerate(lines):
         stripped = line.strip().strip("*_`").lower()
         if not stripped:
             continue
-        if any(stripped.startswith(pattern) for pattern in metadata_patterns):
+        if any(stripped.startswith(pattern) for pattern in SCRIPT_METADATA_START_PATTERNS):
             first_body_index = index + 1
             continue
         first_body_index = index
         break
     return "\n".join(lines[first_body_index:]).strip()
+
+
+def first_nonempty_line(text: str) -> str:
+    for line in text.splitlines():
+        stripped = line.strip().strip("*_`")
+        if stripped:
+            return stripped
+    return ""
 
 
 def find_script_body(text: str) -> str:
@@ -246,6 +255,26 @@ def count_timestamp_beats(text: str) -> int:
 def timestamp_to_seconds(value: str) -> int:
     minutes, seconds = value.split(":")
     return int(minutes) * 60 + int(seconds)
+
+
+def declared_runtime_seconds(text: str) -> int | None:
+    candidates: list[int] = []
+    for line in text.splitlines():
+        if "runtime" not in line.lower():
+            continue
+        for match in re.finditer(
+            r"\b(\d{1,2}):(\d{2})(?:\s*(?:-|\u2013)\s*(\d{1,2}):(\d{2}))?",
+            line,
+        ):
+            if match.group(3) is not None:
+                candidates.append(int(match.group(3)) * 60 + int(match.group(4)))
+            else:
+                candidates.append(int(match.group(1)) * 60 + int(match.group(2)))
+        for match in re.finditer(r"\b(\d+(?:\.\d+)?)\s*minutes?\b", line, flags=re.I):
+            candidates.append(int(float(match.group(1)) * 60))
+    if not candidates:
+        return None
+    return max(candidates)
 
 
 def last_beat_end_seconds(text: str) -> int | None:
@@ -302,6 +331,16 @@ def lint(
         if section not in lower:
             issues.append(f"Missing required planning/control item: {section}")
 
+    raw_script_section = find_section(text, ["script"]) or ""
+    raw_script_first = first_nonempty_line(raw_script_section).lower()
+    if raw_script_first and any(
+        raw_script_first.startswith(pattern) for pattern in SCRIPT_METADATA_START_PATTERNS
+    ):
+        issues.append(
+            "Script section starts with production metadata; move runtime/word-count notes "
+            "to Runtime or Script Control Brief so # Script begins with spoken narration"
+        )
+
     script = find_script_body(text)
     word_count = len(words(script))
     paragraph_counts = paragraph_word_counts(script)
@@ -354,20 +393,28 @@ def lint(
     if lower.count("scene") < 4:
         issues.append("Scene language appears thin; scene ladder or scene-based script may be missing")
 
-    beat_count = count_timestamp_beats(text)
+    retention_section = find_section(text, ["retention beat map"])
+    beat_source = retention_section if retention_section else text
+    beat_count = count_timestamp_beats(beat_source)
     if "retention beat map" in lower and beat_count < min_beats:
         issues.append(
             f"Retention Beat Map appears too thin: found {beat_count} timestamped beats < {min_beats}"
         )
 
-    if target_duration_sec is not None and "retention beat map" in lower:
-        last_end = last_beat_end_seconds(text)
-        min_end = int(target_duration_sec * 0.9)
+    declared_duration_sec = declared_runtime_seconds(text)
+    effective_duration_sec = target_duration_sec
+    if declared_duration_sec is not None:
+        effective_duration_sec = max(effective_duration_sec or 0, declared_duration_sec)
+
+    if effective_duration_sec is not None and "retention beat map" in lower:
+        last_end = last_beat_end_seconds(beat_source)
+        min_end = int(effective_duration_sec * 0.95)
         if last_end is None:
             issues.append("Retention Beat Map has no parseable timestamp end points")
         elif last_end < min_end:
             issues.append(
-                f"Retention Beat Map stops too early: last beat ends at {last_end}s < {min_end}s"
+                "Retention Beat Map stops too early for the declared runtime: "
+                f"last beat ends at {last_end}s < {min_end}s"
             )
 
     if "re-hook plan" not in lower and lower.count("re-hook") < 1 and lower.count("rehook") < 1:

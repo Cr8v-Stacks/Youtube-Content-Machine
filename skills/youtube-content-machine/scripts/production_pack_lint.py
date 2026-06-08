@@ -135,9 +135,33 @@ REPEATED_PROMPT_BODY_PATTERNS = [
     r"\bas a hand-drawn system map\b",
     r"\bthree small nodes for\b",
     r"\btiny map route and date tick\b",
+    r"\bvisible social pressure\b",
+    r"\bobject-specific historical details\b",
+    r"\bstrong foreground-background clarity\b",
+    r"\bclear foreground-background composition\b",
+    r"\bno modern props or decorative clutter\b",
     r"\barranging .{0,90} as nodes connected by .{0,40} arrows\b",
     r"\bwhile arrows connect .{0,70} labels around the figure\b",
 ]
+
+ALLOWED_REPEATED_CLAUSE_PATTERNS = [
+    r"\bhybrid sketch system map\b",
+    r"\bancient/system-map identity\b",
+    r"\bblack ink linework\b",
+    r"\boff white\b",
+    r"\bpaper texture\b",
+    r"\bnotebook paper\b",
+    r"\bmuted earth\b",
+    r"\bno\b",
+    r"\bavoid\b",
+    r"\bwithout\b",
+    r"\bexclude\b",
+]
+
+GENERIC_PADDING_TAIL_RE = re.compile(
+    r",\s*(with (?:visible social pressure|clear foreground-background composition).+?)\.\s*$",
+    flags=re.I,
+)
 
 SHOT_RE = re.compile(
     r"(?m)^\s*(?:shot\s*)?(\d+)[\).]\s*"
@@ -286,6 +310,17 @@ def is_simple_card(prompt: str) -> bool:
     )
 
 
+def simple_card_label(prompt: str) -> str | None:
+    match = re.search(
+        r"\b(date card|text card|title card|quote card|statistic card|map hold|diagram hold)\b",
+        prompt,
+        flags=re.I,
+    )
+    if not match:
+        return None
+    return match.group(1).lower()
+
+
 def contains_any(prompt: str, terms: list[str]) -> bool:
     lower = prompt.lower()
     return any(term in lower for term in terms)
@@ -296,6 +331,43 @@ def prompt_body_after_style(prompt: str, selected_visual_system: str | None) -> 
     if selected_visual_system and body.lower().startswith(selected_visual_system.lower()):
         body = body[len(selected_visual_system) :].lstrip(" ,:-")
     return body.strip().lower()
+
+
+def normalize_prompt_clause(value: str) -> str:
+    value = value.lower().replace(chr(8217), "'")
+    value = re.sub(r"'[^']+'|\"[^\"]+\"", "", value)
+    value = re.sub(r"[^a-z0-9/\- ]+", " ", value)
+    value = value.replace("-", " ")
+    value = re.sub(r"\s+", " ", value).strip()
+    return value
+
+
+def repeated_prompt_clauses(
+    prompts: list[tuple[str, str]], selected_visual_system: str | None
+) -> list[tuple[str, int]]:
+    clause_counts: dict[str, int] = {}
+    for _heading, prompt in prompts:
+        body = prompt_body_after_style(prompt, selected_visual_system)
+        for raw_clause in re.split(r"[,:;.]", body):
+            clause = normalize_prompt_clause(raw_clause)
+            if len(clause) < 35 or len(words(clause)) < 6:
+                continue
+            if any(
+                re.search(pattern, clause, flags=re.I)
+                for pattern in ALLOWED_REPEATED_CLAUSE_PATTERNS
+            ):
+                continue
+            clause_counts[clause] = clause_counts.get(clause, 0) + 1
+
+    if not prompts:
+        return []
+    threshold = max(12, int(len(prompts) * 0.20))
+    repeated = [
+        (clause, count)
+        for clause, count in clause_counts.items()
+        if count > threshold
+    ]
+    return sorted(repeated, key=lambda item: item[1], reverse=True)
 
 
 def content_tokens(value: str) -> list[str]:
@@ -558,6 +630,22 @@ def lint(
             + ("" if len(short_prompts) <= 8 else f"; +{len(short_prompts) - 8} more")
         )
 
+    simple_card_labels: dict[str, int] = {}
+    for _heading, prompt in all_prompts:
+        label = simple_card_label(prompt)
+        if label:
+            simple_card_labels[label] = simple_card_labels.get(label, 0) + 1
+    simple_card_count = sum(simple_card_labels.values())
+    if simple_card_count / len(all_prompts) > 0.40:
+        preview = "; ".join(
+            f"{label} appears {count}x"
+            for label, count in sorted(simple_card_labels.items(), key=lambda item: item[1], reverse=True)[:4]
+        )
+        issues.append(
+            "Too many prompts are labeled as simple cards or holds; do not use card/hold labels "
+            f"to bypass prompt-depth requirements: {preview}"
+        )
+
     missing_camera = [
         heading
         for heading, prompt in all_prompts
@@ -647,6 +735,39 @@ def lint(
             issues.append(
                 "Prompt body template repetition detected; prompts look mechanically generated "
                 f"instead of shot-directed: {preview}"
+            )
+
+        repeated_clauses = repeated_prompt_clauses(all_prompts, selected_visual_system)
+        if repeated_clauses:
+            preview = "; ".join(
+                f"'{clause[:70]}...' appears {count}x"
+                for clause, count in repeated_clauses[:4]
+            )
+            issues.append(
+                "Repeated long prompt clauses detected; keep shared visual identity, but rewrite "
+                "camera, object, action, and tension language per shot instead of using polished "
+                f"A/B/C templates: {preview}"
+            )
+
+        padding_tails: dict[str, int] = {}
+        for _heading, prompt in all_prompts:
+            match = GENERIC_PADDING_TAIL_RE.search(prompt)
+            if match:
+                tail = re.sub(r"\s+", " ", match.group(1).strip().lower())
+                padding_tails[tail] = padding_tails.get(tail, 0) + 1
+        repeated_padding = [
+            (tail, count)
+            for tail, count in padding_tails.items()
+            if count / len(all_prompts) > 0.20
+        ]
+        if repeated_padding:
+            preview = "; ".join(
+                f"'{tail[:80]}...' appears {count}x"
+                for tail, count in repeated_padding[:3]
+            )
+            issues.append(
+                "Generic prompt-padding suffix detected; revise prompts with shot-specific details "
+                f"instead of appending the same validator words: {preview}"
             )
 
     return issues

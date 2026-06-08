@@ -89,6 +89,7 @@ Technical file-writing rule:
 - Prefer `apply_patch` or the normal workspace shell path for markdown production-pack files.
 - Do not use the Node REPL to write directly into the workspace or `C:\tmp`; in restricted Codex sessions it may be read-only there. If Node is needed for generation or analysis, write only to `nodeRepl.tmpDir`, then bridge through the workspace shell, or regenerate through the shell path.
 - Do not dump huge generated markdown through an inline `node -e` or here-string script unless there is no safer path. It hides quoting errors and encourages loop-generated creative content.
+- File-backed assemblers are allowed for safe writing, counting, or stitching already-written material, but they must not generate creative A/B/C shot prompts from one template function over an array of beats. Remove temporary generator/assembler helpers before final delivery unless the user explicitly asked to keep the tool.
 
 Existing-file honesty rule:
 
@@ -114,6 +115,7 @@ Production pack hard gates:
 - Premium prompt quality requires variety inside consistency: rotate shot types, camera language, visual function, object focus, and emotional staging. Do not repeat the same A/B/C prompt skeleton across the whole shot list.
 - Prompt variations must change execution meaningfully: one may be a literal action scene, one an object/evidence insert, and one a system/timeline/map view, but the wording, composition, and visual role must feel bespoke to that narration beat.
 - Do not author final shot prompts by looping over arrays of phrases, nouns, actions, and emotions. Scripts may help count, validate, or transform already-written material, but the creative shot list must be written and revised as script-aligned visual beats. Loop-generated prompt packs are not 9/10 output.
+- If a prompt-depth validator fails, do not mechanically append the same suffix to every prompt, such as "visible social pressure," "object-specific historical details," or "foreground-background clarity." Fix each weak shot by adding the specific object, action, setting, framing, evidence, or tension that belongs to that narration beat.
 - Thumbnail prompts must follow the same visual identity lock unless the channel has a deliberately separate thumbnail brand.
 - Every shot must include timestamp range, narration line or phrase covered, and image prompt variations unless the user explicitly asks for single-prompt output.
 - Character prompts must match the selected visual system exactly. Sketch shots need sketch character prompts; cinematic documentary shots need cinematic documentary character prompts; stick-drawing shots need stick-drawing character prompts.

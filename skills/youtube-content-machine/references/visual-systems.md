@@ -166,6 +166,10 @@ Do not create validator-complete prompts by cycling one grammar through the whol
 
 Do not use code loops over noun, action, frame, label, or emotion arrays to author the final prompts. Loop-generated prompts usually pass length checks while failing production judgment. Write or revise prompts as shot clusters tied to actual script beats.
 
+Do not inflate weak prompts by appending the same generic phrase to every shot, such as "visible social pressure," "object-specific historical details," or "foreground-background clarity." Those are validator words, not visual direction. Add the precise prop, gesture, setting, composition, and tension that only belongs to that shot.
+
+Do not tag nearly every prompt as a "diagram hold" or other card/hold type to escape depth checks. A diagram hold is a deliberate pacing choice for a specific beat; it should not replace varied shot types such as character action, object clue, social pressure, map, timeline, archive artifact, and final synthesis.
+
 Avoid mechanical A/B/C patterns such as:
 
 - A: medium shot of...

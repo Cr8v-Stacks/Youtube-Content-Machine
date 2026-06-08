@@ -27,6 +27,48 @@ Use these universal angle templates:
 - Hidden cost: reveal the consequence behind something people think is simple.
 - Project or company tension: introduce a real actor, number, risk, and obstacle.
 
+## Misconception Research Pass
+
+Before writing the opening for factual, historical, science, finance, technology, system-explanation, or origin videos, identify what the viewer probably thinks the answer is. Do this before scripting, not after.
+
+Build a quick misconception map:
+
+1. The most common folk answer.
+2. The second obvious answer or partial truth.
+3. The modern assumption viewers may project backward.
+4. The oversimplified school-textbook version.
+5. The answer that is technically true but too late, too narrow, or incomplete.
+
+Choose the best 2-3 targets for the opening based on commonness, speed, tension, and closeness to the real answer. Do not attack weak strawmen. Attack beliefs the viewer may actually hold.
+
+The first 30-60 seconds should usually work like this:
+
+1. Name the obvious answer the viewer came with.
+2. Break or complicate it quickly.
+3. Name a second plausible answer if it creates more curiosity.
+4. Explain why that answer is also incomplete.
+5. Introduce the real engine of the story without fully teaching it yet.
+
+For "What did humans do before money?", the likely targets are barter, shells/cowries, and direct trade as a constant internal market. The stronger replacement is trust, memory, reciprocity, reputation, and delayed exchange.
+
+For renewable-energy history, likely targets may be "this started recently," "the old invention failed because it did not work," "modern versions were the first serious versions," or "the only problem was engineering." Replace those with timing, adoption, economics, infrastructure, rivalry, or social-system reasons.
+
+For science explainers, likely targets may be the simple classroom explanation, the intuitive physical explanation, or the wrong scale of the phenomenon. Replace those with the paradox, experiment, measurement, or hidden mechanism.
+
+For tech reviews and product topics, likely targets may be spec-sheet assumptions, brand assumptions, hype-cycle assumptions, or "newer means better." Replace those with the real tradeoff, user constraint, or failure mode.
+
+Do not start by asking the title question again unless it immediately leads into the wrong answer. Do not use broad imagined scenarios, salary/wage analogies, or modern admin examples when the topic has a sharper native misconception to attack.
+
+Misconception-first does not mean every script should start with "Most people think..." Vary the attack:
+
+- Date inversion: "Electric cars were not the sequel to gasoline cars."
+- Object contradiction: "This clay tablet was doing a job coins had not been invented for yet."
+- Scene contradiction: "Inside the village, nobody is swapping fish for grain."
+- Viewer accusation: "The answer you were taught is too neat."
+- Outcome contradiction: "The machine worked. That was not enough."
+
+Use "Most people think..." only when it is the cleanest fastest attack, not as the default opening template.
+
 ## New Channel Framework
 
 When the user wants to brainstorm or build a new channel, guide them conversationally instead of dumping every step at once.
@@ -63,10 +105,109 @@ When the user provides a draft script, treat it as raw material, not final truth
 Before rewriting or packaging:
 
 1. Diagnose whether the hook matches the channel's preferred style.
-2. Flag where the script is too even, too academic, too vague, too slow, or off-brand.
-3. Identify missing tension, missing contradiction, missing research anchors, or weak payoff.
-4. Preserve strong user ideas, but rewrite weak sections instead of regurgitating them.
-5. Explain the main correction briefly before giving the improved output.
+2. Estimate word count and runtime, then compare them to the target runtime before rewriting.
+3. Flag where the script is too even, too academic, too vague, too slow, too essay-like, or off-brand.
+4. Identify missing tension, missing contradiction, missing research anchors, weak payoff, missing scenes, or missing 20-30 second re-hooks.
+5. Preserve strong user ideas, but rewrite weak sections instead of regurgitating them.
+6. Explain the main correction briefly before giving the improved output.
+
+## Runtime And Word Budget
+
+Before drafting any long-form script, choose a target runtime and calculate the word budget.
+
+Use 135 words per minute as the default narration planning speed for calm documentary delivery. Use 150 words per minute only for faster, denser narration. Use 120-125 words per minute for slow, dramatic narration with many pauses.
+
+Default planning formula:
+
+`target words = target minutes x 135`
+
+Set a planning range before writing:
+
+- 5 minutes: 625-700 words.
+- 6 minutes: 750-840 words.
+- 7 minutes: 875-980 words.
+- 8 minutes / 8:00-8:30: 1,080-1,250 words.
+- 9 minutes: 1,215-1,350 words.
+- 10 minutes: 1,350-1,500 words.
+- 12 minutes: 1,620-1,800 words.
+
+For retention-heavy channels, prefer the lower half of a chosen range unless the research and outline genuinely need more room. A script that reaches the upper half must earn it with scenes, twists, evidence, chronology, conflict, and re-hooks, not repeated explanation.
+
+For monetization-ready long-form videos, default to at least 8 minutes when the topic can honestly sustain it. Treat 8 minutes as the floor, not the ceiling. The common standard band is about 8:00-9:30, or roughly 1,080-1,350 words at normal documentary pace. Use 9-10+ or 10-12 minutes when the research sheet, outline, and retention map support the extra talking points. Use 6-7 minutes only when the topic is too thin for 8 minutes, the format is intentionally shorter, or the user requests it.
+
+Do not pad to reach 8 minutes. If the concept is short, either find stronger scenes, evidence, examples, reversals, and re-hooks that genuinely earn the runtime, or recommend a shorter format.
+
+After drafting, estimate runtime in the output:
+
+`estimated runtime = word count / 135`
+
+If the script is more than 10% over the chosen target, audit the cause before cutting. If the excess comes from filler, repeated explanation, jargon, soft bridges, or duplicated lists, revise it down. If the extra runtime comes from necessary proof, scenes, chronology, conflict, or payoff, update the target honestly and expand the retention map and visual plan to match.
+
+## Script Control Brief
+
+After research, misconception mapping, and runtime budgeting, write a Script Control Brief before drafting any substantial script. Treat it like the script's operating prompt: it should guide the output and prevent drift.
+
+Keep it concise, but include:
+
+1. Topic promise: the exact viewer question the video satisfies.
+2. Target runtime and word budget.
+3. Content type: mini-documentary, system explainer, energy history, science explainer, tech review, etc.
+4. Viewer starting belief: what the viewer probably thinks before watching.
+5. Opening targets: the 2-3 misconceptions or incomplete answers to attack first.
+6. Core replacement idea: the truth the video gradually earns.
+7. Retention engine: the main loop, such as assumption, attack, confusion, proof tease, scene, complication, reveal.
+8. Scene ladder: the major visible scenes, objects, people, dates, places, or conflicts that will carry the narration.
+9. Re-hook plan: the pressure point every 20-30 seconds.
+10. Forbidden drift: what the script must avoid, such as essay voice, early full model reveal, padding, generic setup, or modern analogies that do not fit the topic.
+11. Ending target: the emotional or philosophical landing.
+
+Do not write the script until the brief is coherent. If the brief shows the topic cannot sustain the target runtime, say so and either deepen the research angle or recommend a shorter version.
+
+## Opening Attack Ladder
+
+After the Script Control Brief and before drafting, write a timestamped first-minute Opening Attack Ladder. This turns the hook idea into execution.
+
+For long-form scripts, use 4-6 micro-beats:
+
+1. `0:00-0:05`: start with the viewer's wrong belief, a visible contradiction, a strange object, a date inversion, or a proof clue.
+2. `0:05-0:15`: attack or complicate that belief.
+3. `0:15-0:30`: show a concrete proof tease, scene, number, object, person, or reason the obvious answer is incomplete.
+4. `0:30-0:45`: remove the second obvious answer or deepen the question.
+5. `0:45-1:00`: promise the real engine without summarizing the full explanation.
+
+The ladder must be native to the topic. Do not import generic modern admin analogies when the topic has stronger native scenes. For a money-origin video, use barter, shells, clay tablets, grain, village trust, outsider exchange, and early coinage. For an energy project, use project scale, technology, rivals, cost, grid constraint, weather, or failure risk. For a behavior video, use a recognizable social moment, decision pressure, contradiction, or consequence.
+
+If the ladder feels like a classroom introduction, rewrite it before drafting.
+
+## Narrative Texture Rules
+
+Before drafting the script, write 4-6 episode-specific texture rules that prevent article voice.
+
+They must lock:
+
+1. Voice texture: documentary, investigative, conversational, tense, reflective, or another chosen mode.
+2. Sentence rhythm: where short pressure lines are allowed and where fuller scene paragraphs are needed.
+3. Scene rule: what kind of visible moment, object, action, person, place, number, date, or conflict should appear in most paragraphs.
+4. Re-hook rule: what kind of viewer update appears every 20-30 seconds.
+5. Forbidden moves: exact phrases, generic bridges, weak summaries, early full-model reveals, or wrong-topic analogies to avoid.
+6. Model-drip rule: what explanation must be delayed until scenes prove it.
+
+The script should not read like an essay that happens to be spoken aloud. It should feel like the viewer is repeatedly updating a belief because each scene changes the answer.
+
+## Retention Beat Map
+
+Before drafting a standard long-form script, create a timestamped Retention Beat Map. This is the bridge between the Script Control Brief and the narration.
+
+Use 20-30 second beats. Each beat must include:
+
+1. Timestamp range.
+2. Viewer question or pressure point.
+3. Scene, object, person, date, place, conflict, or proof shown.
+4. Mini-reveal or update to the viewer's belief.
+
+For an 8-minute video, aim for 16-24 beats and make the map cover the full target runtime, not just the first 5-7 minutes. Do not write the full script until the beat map has enough scenes, reversals, and proof points to sustain the target runtime.
+
+If two adjacent beats make the same point, merge or replace one. If a beat cannot be visualized, rewrite it as a scene or remove it.
 
 ## Script Structure
 
@@ -78,6 +219,17 @@ For broad long-form videos, use:
 4. System reveal: hidden loop, incentive, history, or mechanism.
 5. Modern manifestation: how it appears now.
 6. Final twist: philosophical, unsettling, or clarifying implication.
+
+For retention-heavy mini-documentary and origin videos, use:
+
+1. Assumption attack: break the answer the viewer brought into the video.
+2. Proof tease: show one concrete reason the common answer is incomplete.
+3. Scene one: put the viewer into the first visible moment, object, person, or social situation.
+4. Escalation: add a date, place, object, conflict, or scale jump.
+5. System reveal: let the model emerge from scenes rather than stating it early.
+6. Second misconception break: correct the next plausible but incomplete answer.
+7. Payoff: explain the deeper mechanism.
+8. Reflection: connect the mechanism to the modern world or human behavior.
 
 For Shorts, use:
 
@@ -238,7 +390,7 @@ Title ladder pattern:
 
 ## Retention Rules
 
-Every 30-60 seconds introduce something new:
+Every 20-30 seconds, reset viewer interest with a new pressure point:
 
 - Question.
 - Fact.
@@ -256,6 +408,10 @@ Every 30-60 seconds introduce something new:
 - Consequence.
 - Emotion.
 - Visual payoff.
+- Misconception break.
+- Mini-reversal.
+- Proof tease.
+- Scale jump.
 
 Do not spend multiple minutes circling the same point.
 
@@ -274,6 +430,21 @@ When a section makes an abstract claim, immediately ground it in a tangible exam
 
 If a viewer could say "okay, I get it" before the section ends, add a new fact, example, complication, or question.
 
+Do not reveal the full explanatory model too early. Drip the model through scenes, proof, contradiction, and escalation. Avoid early summary lines such as "Before money, humans relied on trust, memory, and reciprocity" unless the viewer has already seen a concrete moment that makes the summary feel earned.
+
+Use this retention engine for mini-documentary scripts:
+
+1. Assumption.
+2. Attack.
+3. Confusion.
+4. Proof tease.
+5. Scene.
+6. Complication.
+7. New question.
+8. Reveal.
+
+Do not write a chain of truth statements. Write a chain of viewer updates.
+
 ## Research Rules
 
 Use browsing or verified sources when the request depends on current or factual details such as companies, statistics, prices, new projects, regulations, release dates, or recent events.
@@ -291,7 +462,7 @@ Specifics create authority and retention.
 
 For factual content outputs, include a "Research Material" section when the user asks for upload-ready or production-ready work. Provide source links and the key facts used so the user can cross-check the script.
 
-Before factual or historical scripts, gather the research foundation first. Use it to choose the hook, title, conflict, and details instead of writing a generic script and adding facts afterward.
+Before factual or historical scripts, gather the research foundation and misconception map first. Use them to choose the hook, title, conflict, opening targets, and details instead of writing a generic script and adding facts afterward.
 
 Research must look for wow-factor context, not just object facts. For historical topics, check for:
 
@@ -308,7 +479,16 @@ Use these details only when they tighten the story. Do not add famous names as t
 
 Every paragraph should contain enough connected information to justify a visual sequence.
 
+Every paragraph must pass the scene test: "Can I see this happening?" If the answer is no, rewrite the paragraph around a person, object, event, setting, action, conflict, or visible system. Abstract conclusions can appear, but only after a concrete moment earns them.
+
 Avoid many isolated short sentences unless writing a deliberate punchy hook. For body sections, give editors substance to cut around: actor, action, reason, tension, and visual cue.
+
+Avoid "truth paragraphs" that only state the lesson:
+
+- Weak: "Before money, humans relied on trust, memory, and reciprocity."
+- Stronger: "If someone shared meat after a hunt, nobody pulled out a price list. The village remembered who had shared, who had taken, and who would be expected to help when the dry season came."
+
+The body should feel like scenes creating ideas, not ideas looking for scenes afterward.
 
 ## Production Mindset
 
@@ -326,3 +506,30 @@ Default pipeline:
 8. Upload with packaged metadata.
 
 The idea carries the video. Do not overcomplicate production.
+
+## Pre-Delivery Self-Audit
+
+Before delivering a substantial script or production pack, run a final self-audit in this order:
+
+1. Runtime check: confirm target runtime, target word range, actual or estimated word count, and estimated runtime.
+2. Opening check: confirm the first 5-10 seconds attack the viewer's likely belief, not the topic in general.
+3. Opening ladder check: confirm the first minute has 4-6 micro-beats and does not collapse into a calm explanation.
+4. Model-drip check: confirm the full explanation is not summarized before scenes prove it.
+5. Scene check: sample body paragraphs and ask, "Can I see this happening?"
+6. Article-voice check: remove generic essay phrases, textbook bridges, repeated abstract summaries, and robotic cadence.
+7. Re-hook check: confirm every 20-30 seconds has a pressure point: reversal, proof tease, scene change, question, number, date, object, conflict, or scale jump.
+8. Native-context check: confirm the script uses the topic's own world, not generic modern analogies or unrelated admin examples.
+9. Cut check: remove repeated truth statements, soft bridges, and explanatory padding.
+10. Delivery check: confirm the output includes the Script Control Brief, Opening Attack Ladder, Narrative Texture Rules, and the script follows them.
+11. Visual pack check, when image prompts are included: confirm the selected visual system, character prompt style, prompt depth, shot count, timestamp pacing, narration coverage, and prompt variations.
+
+If a file or draft text is available, run `scripts/script_quality_lint.py` as a mechanical tripwire. If a full production pack includes image prompts, also run `scripts/production_pack_lint.py`. Fix failures before delivering. Passing the scripts does not replace the self-audit.
+
+Use the right gate for the artifact:
+
+- Script flow/opening test: use a small script-body range, but still require `--min-beats 16 --target-duration-sec 480` so the flow proves it can sustain 8 minutes.
+- Finished standard long-form script: use `--preset standard-8` when the target is in the 8:00-9:30 band. For intentionally longer scripts, set an honest longer target and apply the same retention audit manually.
+- Finished standard long-form full production pack: run both `scripts/script_quality_lint.py --preset standard-8 <file>` and `scripts/production_pack_lint.py --preset standard-8 <file>` when the target is in the 8:00-9:30 band. For intentionally longer packs, scale shot count and timestamps beyond the standard preset.
+
+Do not call a script flow "production-ready" until the finished script body also passes the word-count gate and the editorial self-audit.
+Do not call a production pack "shot-by-shot" until the visual prompt gate passes or the pack is clearly labeled as a partial shot-list draft.

@@ -4,19 +4,48 @@
 
 Use this when the user asks for the normal prep, upload-ready material, full package, production pack, or anything similar.
 
+In a tool-enabled Codex environment, make the production pack file-backed by default. Create or update a markdown file, run the validators, then summarize the result to the user with the file path. A short chat response with a script and light metadata is not a completed production pack.
+
 Return:
 
 1. Title and alternative titles.
-2. Draft script diagnosis, when the user provides an existing script.
-3. Selected visual system for this episode, with a short reason.
-4. Thumbnail text and thumbnail image prompts.
-5. Primary character image prompt, when a person, recurring figure, mascot, or historical individual appears.
-6. Script only, with no image prompts inside the script.
-7. Shot-by-shot script-to-image prompts.
-8. SEO meta description.
-9. Hashtags.
-10. Tags.
-11. Research material with source links and key facts used, when the topic is factual or historical.
+2. Runtime target, word budget, and estimated runtime.
+3. Script Control Brief.
+4. Opening Attack Ladder.
+5. Retention Beat Map.
+6. Narrative Texture Rules.
+7. Channel Visual Identity Lock.
+8. Draft script diagnosis, when the user provides an existing script.
+9. Selected visual system for this episode, with a short reason.
+10. Thumbnail text and thumbnail image prompts.
+11. Primary character image prompt or recurring character set, when a person, recurring figure, repeated archetype, mascot, or historical individual appears.
+12. Script only, with no image prompts inside the script.
+13. Shot-by-shot script-to-image prompts.
+14. SEO meta description.
+15. Hashtags.
+16. Tags.
+17. Research material with source links and key facts used, when the topic is factual or historical.
+
+Do not make the pack look complete by compressing production data. A full pack with script-to-image prompts must preserve runtime math, shot density, prompt depth, and timestamp coverage. If the answer becomes too long, split it into parts and continue the shot list in the next part.
+
+If a file with the same topic/title already exists, state whether the output is an existing pack validation, a revision, or a fresh generation. Do not frame an existing validated file as newly generated content. For fresh-generation tests, write to a new draft file or explicitly say the existing file is being used as a reference.
+
+Pre-delivery completeness check:
+
+- All required sections are present as clear markdown headings.
+- Runtime target, word budget, actual or estimated word count, and estimated runtime agree with each other.
+- Script Control Brief, Opening Attack Ladder, Retention Beat Map, and Narrative Texture Rules appear before the script.
+- Retention Beat Map reaches the stated runtime and includes first-minute pressure, first-3-minute escalation, middle re-hooks, and ending payoff.
+- Channel Visual Identity Lock includes default visual system, identity preset, approved inserts, style DNA, thumbnail DNA, and forbidden drift.
+- Selected Visual System includes a canon system plus identity preset, not only a broad system name.
+- Recurring character set or primary character prompt is included when repeated people or roles appear.
+- Shot-by-shot prompts cover the entire runtime with timestamps, narration phrase coverage, and three prompt variations per shot for long-form packs.
+- Shot narration coverage follows the actual script sequence: hook shots cover the hook, middle shots cover the middle, and final shots cover the final reversal or payoff.
+- A/B/C prompt variations change production role, object focus, scene function, or visual metaphor, not only camera distance.
+- SEO, hashtags, tags, and research material include the factual anchors needed to produce and fact-check the video.
+- `script_quality_lint.py` and `production_pack_lint.py` pass when tools are available.
+
+Never finish with phrases like "this can be expanded into shots later" for a requested full pack. Split the pack, continue in a file, or say the output is incomplete.
 
 ## Title Section
 
@@ -47,6 +76,8 @@ Recommendation logic:
 - Avoid clever wording that hides the story.
 - Explain the recommendation in one sentence.
 
+Thumbnail prompts must follow the Channel Visual Identity Lock. If the channel uses Hybrid Sketch System Map, the thumbnail should not suddenly become cinematic realism unless the channel has explicitly approved separate thumbnail branding. Thumbnail art may be more contrast-heavy than the video, but it must share the same visual world, recurring anchors, and forbidden-drift rules.
+
 ## Draft Script Diagnosis
 
 When the user provides a script or draft, do not simply repackage it. First critique it against the channel's standards.
@@ -55,15 +86,99 @@ Include:
 
 - What works.
 - What does not fit the channel style.
+- Which likely viewer misconceptions the current intro attacks or fails to attack.
 - Whether the intro fits the preferred hook pattern.
+- Whether the script feels like a watching experience or a reading experience.
+- Estimated word count and runtime versus the target runtime.
+- Where the script lacks 20-30 second re-hook loops, pressure points, scenes, proof teases, or mid-body belief updates.
 - Whether the story has enough tension, contrast, and payoff.
+- Whether the first 3 minutes, middle section, and ending each keep retention pressure or only the intro works.
+- Whether the visual pack supports retention with dense shot timing, deep prompts, and full narration coverage.
+- Whether runtime cuts would damage quality or only remove repeated explanation.
 - What must be corrected before production.
 
 Then rewrite or package the script using those corrections.
 
+## Script Control Brief
+
+Include this before writing the script for substantial long-form videos. It should guide the script, not become narration.
+
+Return:
+
+- Topic promise.
+- Target runtime and word budget.
+- Content type.
+- Viewer starting belief.
+- Opening targets.
+- Core replacement idea.
+- Retention engine.
+- Scene ladder.
+- Re-hook plan.
+- Forbidden drift.
+- Ending target.
+
+## Opening Attack Ladder
+
+Include this after the Script Control Brief for every substantial script. This is the first-minute execution plan, not a generic hook note.
+
+Return 4-6 timestamped micro-beats:
+
+- `0:00-0:05`: the exact belief, assumption, object, number, date, contradiction, or visible situation that starts the video.
+- `0:05-0:15`: the first attack or complication.
+- `0:15-0:30`: the proof tease, object, scene, or reason the viewer's answer is incomplete.
+- `0:30-0:45`: the second misconception or deeper question.
+- `0:45-1:00`: the promise of the real engine without fully explaining it.
+
+The ladder must use the topic's native world. Do not use generic salary, office, contract, wage, task, or modern admin examples unless the topic itself is about those things.
+
+Do not default to the exact phrase "Most people think..." Use it only when it is truly the fastest cleanest attack. Prefer object contradiction, date inversion, visible scene contradiction, strange evidence, or a direct correction when possible.
+
+## Retention Beat Map
+
+Include this before the script for substantial long-form videos. It proves the script has enough pressure points to sustain the target runtime.
+
+For each beat, include:
+
+- Timestamp range.
+- Viewer question or pressure point.
+- Scene, object, person, date, place, conflict, or proof shown.
+- Mini-reveal or belief update.
+
+For an 8-minute script, provide about 16-24 beats and make the final beat reach the target runtime. If the beat map feels repetitive, under-built, or stops early, revise it before writing the script.
+
+## Narrative Texture Rules
+
+Include this before the script as a short, episode-specific writing control. It must prevent the script from reading like an article.
+
+Return:
+
+- Voice texture: how the narration should sound.
+- Sentence rhythm: how to mix short pressure lines with fuller scene paragraphs.
+- Scene rule: what must be visible in most paragraphs.
+- Re-hook rule: what kind of viewer update appears every 20-30 seconds.
+- Forbidden phrases or moves: topic-specific versions of article voice, generic bridges, weak summaries, and early full-model reveals.
+- Model-drip rule: what truth must be delayed until scenes earn it.
+
+## Channel Visual Identity Lock
+
+Include this before selecting thumbnails or shot prompts. Use `selection-matrices.md` to choose it.
+
+Return:
+
+- Channel/niche identity.
+- Default episode visual system.
+- Identity preset name.
+- Approved alternates or inserts.
+- Style DNA: texture, line style or lighting, palette, character treatment, object treatment, label treatment.
+- Thumbnail art DNA: composition, text behavior, recurring symbols, contrast style.
+- Forbidden drift.
+
+The Selected Visual System must follow this lock. A shot prompt or thumbnail prompt that violates the lock should be rewritten before delivery.
+Do not deliver a broad system name without an identity preset. For example, write "Hybrid Sketch System Map, modern institution map identity" or "Cinematic Documentary System, modern lab/product identity," not only "Hybrid Sketch System Map" or "Cinematic Documentary System."
+
 ## Selected Visual System
 
-Before image prompts, choose the best visual system for the episode and say why.
+Before image prompts, choose the best visual system and identity preset for the episode and say why. Use `selection-matrices.md` to make the choice, then keep that system stable across the character prompt, thumbnail prompts, and shot list.
 
 Do not default to generic prompts. Select the visual system based on the script's subject:
 
@@ -76,9 +191,30 @@ Do not default to generic prompts. Select the visual system based on the script'
 
 If the user suggests a visual system and it fits, use it. If a different system is stronger, say so and explain.
 
+Do not invent a new episode-level visual system unless the topic truly cannot fit one of the six canon systems. When variety is needed, choose different shot visual types inside the selected system.
+
 ## Script Section
 
 Write the script cleanly without image prompts. If timestamps are useful, include them. If the user asked for a Short, write tightly for the requested length.
+
+Before the script, state:
+
+- Target runtime.
+- Target word count range.
+- Actual or estimated word count.
+- Estimated runtime using 135 words per minute unless a different pace is specified.
+
+If the script exceeds the chosen target by more than 10%, audit before cutting. Cut only when the excess is caused by bloat, filler, repeated explanation, weak bridges, or duplicated points. If the extra runtime is justified by the research sheet, outline, proof scenes, chronology, or payoff, update the target runtime honestly and strengthen the retention and visual plan instead of forcing the script down.
+
+For a standard long-form script, 8 minutes is the normal floor, not a hard ceiling. A delivery around 8:30 or close to 9 minutes is usually fine. Some topics should run 9-10+ or 10-12 minutes when the research and outline genuinely support that length. Do not call a 1,500+ word script an 8-minute pack; declare the longer target and make sure the retention beat map and shot list scale with it.
+
+Runtime compression rule:
+
+- Cutting a script should make it sharper, not thinner.
+- Do not cut just because the runtime passes 8 minutes. First ask whether the extra time comes from necessary talking points or from bloat.
+- Cut repeated thesis statements, duplicated lists, generic bridges, and already-proven explanations first.
+- Preserve hook attacks, proof scenes, conflict moments, re-hook questions, timeline anchors, object clues, and ending payoff.
+- If a cut removes a retention pressure point, replace it with a shorter pressure point rather than leaving a smooth article paragraph.
 
 The script should preserve:
 
@@ -88,11 +224,15 @@ The script should preserve:
 - Payoff.
 - Present-day or system connection.
 
-## Primary Character Image Prompt
+## Primary Character Image Prompt Or Recurring Character Set
 
-Include this section when the video has a main historical figure, recognizable person, recurring presenter, mascot, or recurring fictional character.
+Include this section before the shot-by-shot prompts whenever the video has a main historical figure, recognizable person, recurring presenter, mascot, recurring fictional character, or repeated social-role archetype.
 
 Purpose: give the user a stable reference image prompt they can generate once and reuse for consistency across the video.
+
+For system-history, human-behavior, faceless documentary, or explainer videos that repeatedly show the same type of person across shots, create a recurring character set even when there is no single named protagonist. Define only the archetypes needed for continuity, such as "ancient community member," "outsider trader," "temple scribe," or "modern viewer."
+
+The character prompt must use the same visual system selected for the episode and the same style layer as the shot-by-shot prompts. If the shot list uses stick drawing, character prompts must be stick drawing. If the shot list uses cinematic documentary realism, character prompts must use cinematic documentary realism. If the shot list uses Evidence Board / Polaroid, character prompts must be written for that visual world. Do not mix a realistic character prompt with sketch, diagram, comic, or stick-drawing shot prompts.
 
 For historical or renowned individuals:
 
@@ -118,10 +258,22 @@ Each shot should include:
 - Timestamp range.
 - Narration line or phrase covered by the shot.
 - Image prompt.
+- For long-form, three prompt variations per shot unless the user explicitly requests one prompt per shot.
 
 Multiple shots may cover one sentence when pacing requires it.
 
+After generating the shot list, audit semantic alignment against the script. The final 10-15 shots must cover the script's ending, not recycled phrases from the first half. A shot list that reaches the target runtime on the timeline but only covers early narration is not production-ready, even if the prompt count and word depth look correct.
+
 For long-form videos, provide 3 image prompt variations per shot for A/B testing unless the user explicitly asks for a single prompt. Vary framing, style layer, or visual metaphor while preserving the same narration beat and channel identity. For Shorts, one strong prompt per shot is usually enough unless the user asks for A/B variants.
+
+Premium variation rule:
+
+- A/B/C variations should not be the same prompt sentence with only "medium shot," "close-up," and "overhead" swapped in.
+- Give each variation a different production role, such as literal character action, object/evidence insert, system diagram, map/timeline view, split comparison, archive artifact, emotional reaction, or final synthesis.
+- Rotate the wording and composition across the shot list so the prompts feel directed by the narration, not generated from one repeated template.
+- If the same opening phrase appears across many prompts, rewrite the set with more varied shot types before delivery.
+- Do not generate prompts by cycling a small grammar such as "literal scene," "object-led insert," and "system-map diagram" across every shot. That creates validator-complete but editor-weak prompts.
+- Do not use code loops over arrays of narration phrases, nouns, actions, frames, labels, or emotions to create the final shot list. That produces surface variety while keeping the same prompt skeleton. Use scripts only for counting, validation, or cleanup after the shot prompts are genuinely written.
 
 Long-form script-to-image ratio:
 
@@ -132,8 +284,10 @@ Long-form script-to-image ratio:
 - A 5-6 second shot is only acceptable when it is a deliberate emphasis moment, emotional pause, statistic card, date card, map hold, diagram hold, or visual idea that needs time to sink in.
 - If a regular narration beat is longer than 5-6 seconds, split it into two or more image prompts. For example, 6 seconds can become 3+3, 7 seconds can become 4+3, and 8 seconds can become 4+4.
 - No single prompt should cover more than about 6 seconds unless there is a clear retention reason. If a longer timestamp is unavoidable, create multiple numbered prompts inside that timestamp instead of one generic prompt.
-- An 8-10 minute video should normally produce dozens of visual beats, often 60-100+ shots depending on pacing.
+- An 8-minute standard video should normally produce roughly 90-120 visual beats when delivered as a true shot-by-shot pack. Longer videos may need more.
 - If the full shot list would be too long for one response, split it into parts instead of compressing it into a thin shot list.
+- Never turn an 8-minute video into 20-30 broad visual prompts. That is a chapter outline, not a shot list.
+- Do not label a compressed visual outline as a full pack by saying the user can expand it later. That is a failed production pack. Split the delivery into parts instead.
 
 Every image prompt must answer:
 
@@ -142,7 +296,7 @@ Every image prompt must answer:
 3. What emotional tension is present?
 4. What props, setting, or details make the concept clear?
 
-Prompts must be descriptive enough for image generation. Include visual system, composition, subject, action, framing, background, style, emotional tone, important labels/text, and negative constraints where needed.
+Prompts must be production-ready visual instructions, not labels. Include visual system, exact subject, visible action, period or domain context, composition, framing, setting, props, style texture, emotional tone, important labels/text, and negative constraints where needed.
 
 The AI image generator does not know the script. Each image prompt must stand alone. Do not assume the generator knows the topic, timeline, place, product, object, character, emotional context, visual system, or surrounding narration.
 
@@ -167,6 +321,13 @@ Every generated prompt should include:
 5. Props, clothing, interface details, tools, setting, labels, maps, materials, or physical details.
 6. Emotional tension or narrative meaning.
 7. Negative constraints for mistakes to avoid.
+
+Prompt depth gate:
+
+- A normal production prompt should usually be 36+ words unless it is a deliberate date card, text card, statistic card, map hold, or very simple object shot.
+- Each prompt should include framing or composition language, visible action, exact subject, domain or period context when relevant, props/details, emotional or narrative tension, and mistake-prevention constraints.
+- A prompt that only names a scene, setting, or category is a failure even if it uses the selected visual style.
+- If the selected system is sketch, diagram, comic, stick drawing, cinematic documentary, or evidence-board style, every character prompt and shot prompt must stay in that same visual world.
 
 Bad prompt: "People using technology."
 
@@ -218,6 +379,8 @@ Return:
 
 - Sources used, with links.
 - Key facts pulled from each source.
+- Misconception map: likely viewer wrong answers, partial answers, or folk explanations considered for the opening.
+- Opening targets chosen: the 2-3 misconceptions or assumptions the script should attack first, with a short reason.
 - Any uncertainty or conflicting detail that should be checked before publishing.
 
 This section is for the user to cross-check the content and should not be written like video narration.
@@ -227,8 +390,11 @@ This section is for the user to cross-check the content and should not be writte
 When the user asks only for a script, do not include metadata unless useful. Provide:
 
 - Primary title.
+- Runtime target and estimated word count.
+- Script Control Brief, when the script is substantial or factual.
+- Retention Beat Map, when the script is long-form.
 - Script.
-- Optional notes on hook, retention beats, and visual opportunities.
+- Notes on hook, retention beats, re-hook loops, and visual opportunities when useful.
 
 ## Brainstorm Format
 

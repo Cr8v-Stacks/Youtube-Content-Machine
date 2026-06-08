@@ -49,14 +49,16 @@ Weaker:
 
 ### Script Shape
 
-For 8-10 minute human-behavior/system-explanation videos:
+For standard long-form human-behavior/system-explanation videos, usually 8:00-9:30 unless the research and outline honestly support a longer runtime:
 
-1. Hook: strange question or contradiction.
+1. Hook: attack the viewer's likely wrong answer, then open the deeper question.
 2. Setup: why the behavior matters.
 3. Simple human model: 2-3 layers.
 4. System reveal: hidden loop, incentive, or evolutionary explanation.
 5. Modern manifestation: social media, money, work, dating, status, attention, or culture.
 6. Final twist: a reflective or unsettling conclusion.
+
+For "What did humans..." or origin-question videos, do not merely restate the title question. Identify the answer viewers probably brought with them, break it fast, then show the older or stranger system underneath.
 
 ### Visual Identity
 
@@ -67,6 +69,24 @@ Use a layered visual language:
 - Minimal expressive cartoon humans for emotional/social moments.
 
 Avoid default stick-figure explainer and generic whiteboard style unless the user specifically wants them.
+
+### Visual Identity Lock
+
+Default episode visual system: Editorial Diagram System for most behavior/system videos.
+
+Identity preset name: Human behavior loop identity.
+
+Approved alternates and inserts:
+
+- Social Comic System for social pressure, embarrassment, status, group reaction, and dialogue moments.
+- Notebook Sketch System for reflective theory, origin thinking, and deep system breakdowns.
+- Hybrid Sketch System Map for "What did humans..." history/origin episodes.
+
+Style DNA: off-white or paper background, clean black/graphite linework, simple editorial humans with expressive but minimal faces, muted teal/amber/red accent marks, arrows, loops, and small labels. The channel should feel like human behavior made visible through a simple system model.
+
+Thumbnail DNA: one recognizable human/social moment or one clean loop diagram, 2-5 word emotional or contradiction label, clear arrow/loop pressure, high clarity, minimal clutter.
+
+Forbidden drift: glossy cinematic realism as the main style, generic whiteboard stick figures, random 3D characters, dense academic diagrams, or thumbnails that look like unrelated psychology stock art.
 
 ## Renewable / Clean Energy / Energy-History Channels
 
@@ -246,3 +266,21 @@ Better: a rejection, number, contradiction, cost, danger, or outcome with the te
 Bad: plain [object] image.
 
 Better: the specific problem, number, conflict, or consequence with the object supporting the message.
+
+### Visual Identity Lock
+
+Default episode visual system: Cinematic Documentary System with archival-industrial documentary realism.
+
+Identity preset name: Archival-industrial identity.
+
+Approved alternates and inserts:
+
+- Evidence Board / Polaroid System for investigation, forgotten history, and hidden-connection episodes.
+- Archive artifact, evidence/document, map/location, timeline, blueprint, patent, and data/diagram inserts inside the cinematic identity.
+- Editorial diagram inserts only when a mechanism, grid constraint, cost curve, or comparison must be simplified.
+
+Style DNA: real-world lighting, grounded workshops, labs, factories, historical rooms, patents, blueprints, machines, infrastructure, hands interacting with objects, period-specific props, naturalistic warm/cool shadows, no sci-fi gloss.
+
+Thumbnail DNA: one physical machine, inventor, blueprint, project, or infrastructure object tied to a weird number, rejection, cost, impossible result, or system obstacle. Text should be short and concrete.
+
+Forbidden drift: generic green-energy stock photos, glossy future-city renders, random solar/wind beauty shots without conflict, fake logos, neon holograms, or purely abstract climate imagery.

@@ -124,6 +124,8 @@ REPEATED_PROMPT_OPENINGS = [
     r"^a literal\b",
     r"^an object-led\b",
     r"^a system-map\b",
+    r"^top-down composition turning\b",
+    r"^diagram layout for\b",
 ]
 
 REPEATED_PROMPT_BODY_PATTERNS = [
@@ -151,6 +153,12 @@ REPEATED_PROMPT_BODY_PATTERNS = [
     r"\bprecise historical props\b",
     r"\bmedium visual density\b",
     r"\bshaped as a\b",
+    r"\bsimple role-based figures stand near the specific goods\b",
+    r"\bmarks, or arrows that carry the exchange\b",
+    r"\btrust-and-memory map\b",
+    r"\bframe the timeline, witness marks, route line, or obligation loop\b",
+    r"\bviewer feels .{0,40} before reading labels\b",
+    r"\bbackground labels point to\b",
 ]
 
 ROTATING_FRAGMENT_BANK_PATTERNS = [

@@ -44,6 +44,7 @@ SKILL_REQUIRED_PHRASES = [
     "prompt-depth validator fails",
     "File-backed assemblers are allowed",
     "cycling a bank of margin",
+    "fixed lanes repeated",
 ]
 
 OUTPUT_REQUIRED_PHRASES = [
@@ -66,6 +67,7 @@ OUTPUT_REQUIRED_PHRASES = [
     "one reusable template function",
     "generic validator phrases",
     "cycling a small bank",
+    "fixed lanes repeated",
 ]
 
 VISUAL_REQUIRED_PHRASES = [

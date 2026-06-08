@@ -273,6 +273,7 @@ Premium variation rule:
 
 - A/B/C variations should not be the same prompt sentence with only "medium shot," "close-up," and "overhead" swapped in.
 - Give each variation a different production role, such as literal character action, object/evidence insert, system diagram, map/timeline view, split comparison, archive artifact, emotional reaction, or final synthesis.
+- Do not turn A/B/C into fixed lanes repeated across the whole pack, such as every A being a literal scene, every B being a top-down map, and every C being a diagram layout. Choose the three variants from the needs of that narration beat.
 - Rotate the wording and composition across the shot list so the prompts feel directed by the narration, not generated from one repeated template.
 - If the same opening phrase appears across many prompts, rewrite the set with more varied shot types before delivery.
 - Do not generate prompts by cycling a small grammar such as "literal scene," "object-led insert," and "system-map diagram" across every shot. That creates validator-complete but editor-weak prompts.

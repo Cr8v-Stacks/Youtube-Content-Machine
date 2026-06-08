@@ -63,6 +63,7 @@ OUTPUT_REQUIRED_PHRASES = [
     "bypass prompt-depth checks",
     "# Script` section must begin with the first spoken narration line",
     "one reusable template function",
+    "generic validator phrases",
 ]
 
 VISUAL_REQUIRED_PHRASES = [

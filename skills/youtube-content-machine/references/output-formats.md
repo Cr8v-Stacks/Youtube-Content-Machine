@@ -279,6 +279,7 @@ Premium variation rule:
 - Do not use code loops over arrays of narration phrases, nouns, actions, frames, labels, or emotions to create the final shot list. That produces surface variety while keeping the same prompt skeleton. Use scripts only for counting, validation, or cleanup after the shot prompts are genuinely written.
 - A file-backed assembler may stitch or count already-written prompt material, but it must not create A/B/C prompts from one reusable template function over a beat array. Delete temporary assembler/generator helpers before final delivery unless the user explicitly asked to keep them.
 - Do not repair thin prompts by appending the same generic depth suffix to every line. Phrases like "visible social pressure," "object-specific historical details," and "foreground-background clarity" are not substitutes for naming the actual object, action, framing, evidence clue, setting, and tension of that shot.
+- Do not satisfy camera/emotion/depth gates by rotating generic validator phrases such as "explicit emotional tension," "under visible pressure," "precise historical props," "medium visual density," or "specific to this beat." Replace them with shot-specific emotion, composition, props, and stakes.
 - Do not label most prompts as "diagram hold," "map hold," "text card," or "title card" to bypass prompt-depth checks. Hold/card labels are for deliberate pacing beats, not the default state of a full shot list.
 
 Long-form script-to-image ratio:

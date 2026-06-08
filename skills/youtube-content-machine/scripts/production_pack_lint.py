@@ -142,6 +142,15 @@ REPEATED_PROMPT_BODY_PATTERNS = [
     r"\bno modern props or decorative clutter\b",
     r"\barranging .{0,90} as nodes connected by .{0,40} arrows\b",
     r"\bwhile arrows connect .{0,70} labels around the figure\b",
+    r"\bexplicit emotional tension\b",
+    r"\bunder visible pressure\b",
+    r"\bin a tense narrative frame\b",
+    r"\bonly the necessary arrows\b",
+    r"\bone or two hand[- ]lettered labels specific to this beat\b",
+    r"\bspecific to this beat\b",
+    r"\bprecise historical props\b",
+    r"\bmedium visual density\b",
+    r"\bshaped as a\b",
 ]
 
 ALLOWED_REPEATED_CLAUSE_PATTERNS = [

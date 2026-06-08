@@ -153,6 +153,21 @@ REPEATED_PROMPT_BODY_PATTERNS = [
     r"\bshaped as a\b",
 ]
 
+ROTATING_FRAGMENT_BANK_PATTERNS = [
+    r"\bforeground sketch note references\b",
+    r"\bbackground margin shows\b",
+    r"\blower corner includes\b",
+    r"\bcomposition reserves clean negative space\b",
+    r"\bone witness mark or route tick\b",
+    r"\bframe includes a small before[- ]after cue\b",
+    r"\bedge annotation turns\b",
+    r"\bforeground-to-background layout\b",
+    r"\btiny date, debt, or status marker\b",
+    r"\bone human gesture or object placement\b",
+    r"\bpaper-margin insert shows\b",
+    r"\bsimple map, tally, or memory mark\b",
+]
+
 ALLOWED_REPEATED_CLAUSE_PATTERNS = [
     r"\bhybrid sketch system map\b",
     r"\bancient/system-map identity\b",
@@ -744,6 +759,25 @@ def lint(
             issues.append(
                 "Prompt body template repetition detected; prompts look mechanically generated "
                 f"instead of shot-directed: {preview}"
+            )
+
+        rotating_fragment_patterns = []
+        fragment_threshold = max(12, int(len(all_prompts) * 0.06))
+        for pattern in ROTATING_FRAGMENT_BANK_PATTERNS:
+            count = sum(
+                1
+                for _heading, prompt in all_prompts
+                if re.search(pattern, prompt_body_after_style(prompt, selected_visual_system), flags=re.I)
+            )
+            if count > fragment_threshold:
+                rotating_fragment_patterns.append((pattern, count))
+        if len(rotating_fragment_patterns) >= 4:
+            preview = "; ".join(
+                f"{pattern} appears {count}x" for pattern, count in rotating_fragment_patterns[:5]
+            )
+            issues.append(
+                "Rotating prompt-fragment bank detected; do not repair prompt depth by cycling "
+                f"generic margin/corner/annotation suffixes: {preview}"
             )
 
         repeated_clauses = repeated_prompt_clauses(all_prompts, selected_visual_system)

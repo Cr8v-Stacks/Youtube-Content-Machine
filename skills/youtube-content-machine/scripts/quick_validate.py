@@ -43,6 +43,7 @@ SKILL_REQUIRED_PHRASES = [
     "Loop-generated prompt packs",
     "prompt-depth validator fails",
     "File-backed assemblers are allowed",
+    "cycling a bank of margin",
 ]
 
 OUTPUT_REQUIRED_PHRASES = [
@@ -64,6 +65,7 @@ OUTPUT_REQUIRED_PHRASES = [
     "# Script` section must begin with the first spoken narration line",
     "one reusable template function",
     "generic validator phrases",
+    "cycling a small bank",
 ]
 
 VISUAL_REQUIRED_PHRASES = [
